@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web1-site
+  namespace: web1-site
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web1-site
+  template:
+    metadata:
+      labels:
+        app: web1-site
+    spec:
+      containers:
+      - name: web1-site
+        image: victorbecerra/web1:v3
+	imagePullPolicy: Always
+        ports:
+        - containerPort: 80

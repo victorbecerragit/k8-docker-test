@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: : web1-site
+  namespace: web1-site
+spec:
+  selector:
+    app: web1-site
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: NodePort
+			    
