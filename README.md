@@ -17,3 +17,25 @@ service-web1-nodeport.yaml
 deployment.yaml
 
 source docker-hub : https://hub.docker.com/r/victorbecerra/web1
+
+#Deploy on kubernets
+#Create namespace
+
+kubectl apply  -f https://raw.githubusercontent.com/victorbecerragit/k8-docker-test/master/ns-web1.yaml
+
+#Create service , selector and port
+
+kubectl create -f https://raw.githubusercontent.com/victorbecerragit/k8-docker-test/master/service-web1-nodeport.yaml
+
+#check services created in your namespaces
+
+kubectl get svc -n web1-site
+
+#Create the container with his replicas
+
+kubectl create -f https://raw.githubusercontent.com/victorbecerragit/k8-docker-test/master/deployment.yaml
+
+#Check deployments in your namespace
+
+kubectl get deployments -n web1-site -o wide
+
