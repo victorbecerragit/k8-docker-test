@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: : web1-site
+  name: web1-v3
   namespace: web1-site
 spec:
   selector:
@@ -11,4 +11,3 @@ spec:
     port: 80
     targetPort: 80
   type: NodePort
-			    
